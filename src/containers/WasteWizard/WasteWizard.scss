@@ -1,0 +1,16 @@
+@import "../../styles/shared.scss";
+
+.container {
+  width: 1024px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.favouriteSection {
+  background: $green-lighter;
+  padding: 0.2rem;
+
+  h2 {
+    color: $green;
+  }
+}

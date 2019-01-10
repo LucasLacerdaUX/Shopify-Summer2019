@@ -1,7 +1,8 @@
 import React from "react";
 import WasteItem from "../WasteItem/WasteItem";
+import "./SearchResults.scss";
 
-const Search_Results = props => {
+const SearchResults = props => {
   const { items, favoriteItem } = props;
   const results = [];
   if (items) {
@@ -34,4 +35,4 @@ const Search_Results = props => {
   );
 };
 
-export default Search_Results;
+export default SearchResults;

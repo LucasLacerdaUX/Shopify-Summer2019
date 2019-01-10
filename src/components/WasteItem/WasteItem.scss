@@ -1,0 +1,31 @@
+@import "../../styles/shared.scss";
+
+.favButton {
+  all: unset;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.2s background-color ease-in-out;
+  border-radius: 99px;
+
+  .starIcon {
+    fill: $grey;
+    transition: 0.2s fill ease-in-out;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: rgba($green-light, 0.2);
+    .starIcon {
+      fill: none;
+      stroke: $green-light;
+      stroke-width: 2px;
+    }
+  }
+
+  &.favourited {
+    .starIcon {
+      fill: $green;
+      stroke: none;
+    }
+  }
+}

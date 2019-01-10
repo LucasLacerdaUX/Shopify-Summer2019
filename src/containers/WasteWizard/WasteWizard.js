@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SearchResults from "../../components/SearchResults/SearchResults";
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import "./WasteWizard.scss";
 
 class WasteWizard extends Component {
   state = { items: {}, results: [], favourites: [], search: "" };
@@ -103,13 +104,21 @@ class WasteWizard extends Component {
 
     return (
       <React.Fragment>
-        <SearchBar
-          searchValue={search}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
-        <SearchResults items={toDisplay} favoriteItem={this.handleFavorite} />
-        <SearchResults items={favs} favoriteItem={this.handleFavorite} />
+        <div class="container">
+          <SearchBar
+            searchValue={search}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+          <SearchResults items={toDisplay} favoriteItem={this.handleFavorite} />
+        </div>
+
+        <section className="favouriteSection">
+          <div class="container">
+            <h2>Favourites</h2>
+            <SearchResults items={favs} favoriteItem={this.handleFavorite} />
+          </div>
+        </section>
       </React.Fragment>
     );
   }

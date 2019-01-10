@@ -1,20 +1,27 @@
 import React from "react";
+import "./SearchBar.scss";
+import { ReactComponent as SearchIcon } from "./Search.svg";
 
 const SearchBar = props => {
   const { searchValue, handleChange, handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <div role="search">
-        <label className="search-label" htmlFor="search" />
+      <div className="searchForm" role="search">
+        <label className="searchLabel" htmlFor="search">
+          Search Wastes
+        </label>
         <input
           id="search"
+          className="searchInput"
           type="text"
           value={searchValue}
           onChange={handleChange}
           placeholder="Search wastes"
           required
         />
-        <input className="button" type="button" value="Search" />
+        <button className="searchButton" type="button" value="Search">
+          <SearchIcon />
+        </button>
       </div>
     </form>
   );

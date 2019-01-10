@@ -1,4 +1,6 @@
 import React from "react";
+import { ReactComponent as StarIcon } from "./Star.svg";
+import "./WasteItem.scss";
 
 const WasteItem = props => {
   const { id, title, body, favourited, favoriteItem } = props;
@@ -6,10 +8,10 @@ const WasteItem = props => {
     <tr>
       <td>
         <button
+          className={favourited ? "favButton favourited" : "favButton"}
           onClick={() => favoriteItem(id)}
-          style={{ backgroundColor: favourited ? "green" : "red" }}
         >
-          Favourite
+          <StarIcon />
         </button>
       </td>
       <td>{title}</td>
