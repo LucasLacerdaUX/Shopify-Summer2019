@@ -1,0 +1,10 @@
+@import "../../styles/shared.scss";
+
+.header {
+  background-image: linear-gradient(to right, $blue, $green);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}

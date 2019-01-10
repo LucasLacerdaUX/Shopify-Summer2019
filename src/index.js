@@ -2,8 +2,15 @@ import React from "react";
 import { render } from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
+import Header from "./components/Header/Header";
+import WasteWizard from "./containers/WasteWizard/WasteWizard";
 
-const App = () => <div>teste</div>;
+const App = () => (
+  <div>
+    <Header />
+    <WasteWizard />
+  </div>
+);
 
 render(<App />, document.getElementById("root"));
 
