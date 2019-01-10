@@ -1,12 +1,28 @@
 @import "../../styles/shared.scss";
 
+@keyframes resize {
+  0%,
+  17.5% {
+    width: 0;
+  }
+}
+
 .favButton {
   all: unset;
   cursor: pointer;
   padding: 5px;
   transition: 0.2s background-color ease-in-out;
   border-radius: 99px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  svg {
+    width: 24px;
+    z-index: 5;
+  }
   .starIcon {
     fill: $grey;
     transition: 0.2s fill ease-in-out;
@@ -23,6 +39,11 @@
   }
 
   &.favourited {
+    svg {
+      will-change: width;
+      animation: resize 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
+    }
+
     .starIcon {
       fill: $green;
       stroke: none;

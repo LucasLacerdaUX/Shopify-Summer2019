@@ -51,12 +51,16 @@ class WasteWizard extends Component {
     if (value.lenght <= 0) {
       return;
     }
+    value = value.toLowerCase();
     const results = [];
     const { items } = this.state;
 
     Object.keys(items).forEach(element => {
       const waste = items[element];
-      if (waste.keywords.includes(value)) {
+      if (
+        waste.keywords.toLowerCase().includes(value) ||
+        waste.title.toLowerCase().includes(value)
+      ) {
         results.push(waste.id);
       }
     });
@@ -102,9 +106,21 @@ class WasteWizard extends Component {
       favs[element] = items[element];
     });
 
+    let favouriteList = null;
+    if (favourites.length > 0) {
+      favouriteList = (
+        <section className="favouriteSection">
+          <div className="container">
+            <h2>Favourites</h2>
+            <SearchResults items={favs} favoriteItem={this.handleFavorite} />
+          </div>
+        </section>
+      );
+    }
+
     return (
       <React.Fragment>
-        <div class="container">
+        <div className="container">
           <SearchBar
             searchValue={search}
             handleChange={this.handleChange}
@@ -112,13 +128,7 @@ class WasteWizard extends Component {
           />
           <SearchResults items={toDisplay} favoriteItem={this.handleFavorite} />
         </div>
-
-        <section className="favouriteSection">
-          <div class="container">
-            <h2>Favourites</h2>
-            <SearchResults items={favs} favoriteItem={this.handleFavorite} />
-          </div>
-        </section>
+        {favouriteList}
       </React.Fragment>
     );
   }
