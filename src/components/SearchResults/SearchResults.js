@@ -9,6 +9,7 @@ const Search_Results = props => {
       const item = items[element];
       results.push(
         <WasteItem
+          key={item.id}
           id={item.id}
           title={item.title}
           body={item.body}

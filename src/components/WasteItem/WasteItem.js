@@ -3,7 +3,7 @@ import React from "react";
 const WasteItem = props => {
   const { id, title, body, favourited, favoriteItem } = props;
   return (
-    <tr key={id}>
+    <tr>
       <td>
         <button
           onClick={() => favoriteItem(id)}

@@ -5,7 +5,7 @@ const SearchBar = props => {
   return (
     <form onSubmit={handleSubmit}>
       <div role="search">
-        <label class="search-label" for="search" />
+        <label className="search-label" htmlFor="search" />
         <input
           id="search"
           type="text"
@@ -14,7 +14,7 @@ const SearchBar = props => {
           placeholder="Search wastes"
           required
         />
-        <input class="button" type="button" value="Search" />
+        <input className="button" type="button" value="Search" />
       </div>
     </form>
   );
