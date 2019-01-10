@@ -19,7 +19,7 @@ const SearchBar = props => {
           placeholder="Search wastes"
           required
         />
-        <button className="searchButton" type="button" value="Search">
+        <button className="searchButton" type="submit" value="Search">
           <SearchIcon />
         </button>
       </div>
