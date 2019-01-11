@@ -7,7 +7,7 @@ const SearchBar = props => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="searchForm" role="search">
-        <label className="searchLabel" htmlFor="search">
+        <label id="searchLabel" className="searchLabel" htmlFor="search">
           Search Wastes
         </label>
         <input
@@ -17,9 +17,12 @@ const SearchBar = props => {
           value={searchValue}
           onChange={handleChange}
           placeholder="Search wastes"
+          aria-labelledby="searchLabel"
+          autoFocus
           required
         />
         <button className="searchButton" type="submit" value="Search">
+          <span className="visually-hidden">Search</span>
           <SearchIcon />
         </button>
       </div>

@@ -12,6 +12,9 @@ const WasteItem = props => {
           onClick={() => favoriteItem(id)}
         >
           <StarIcon />
+          <span className="visually-hidden">
+            {favourited ? "Remove from Favourites" : "Add to Favourites"}
+          </span>
         </button>
       </td>
       <td>{title}</td>
