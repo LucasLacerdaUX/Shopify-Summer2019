@@ -2,10 +2,18 @@ import React, { Component } from "react";
 import SearchResults from "../../components/SearchResults/SearchResults";
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import { ReactComponent as LoadingIcon } from "./LoadingIcon.svg";
+import { ReactComponent as EmptyIcon } from "./WasteIcon.svg";
 import "./WasteWizard.scss";
 
 class WasteWizard extends Component {
-  state = { items: {}, results: [], favourites: [], search: "" };
+  state = {
+    items: {},
+    results: [],
+    favourites: [],
+    search: "takeout",
+    loaded: false
+  };
 
   componentDidMount() {
     // Perform request
@@ -21,7 +29,7 @@ class WasteWizard extends Component {
         });
 
         // Update state and search for takeout
-        this.setState({ items: { ...response["data"] } }, () =>
+        this.setState({ items: { ...response["data"] }, loaded: true }, () =>
           this.search("takeout")
         );
       });
@@ -48,7 +56,7 @@ class WasteWizard extends Component {
   }
 
   search(value) {
-    if (value.lenght <= 0) {
+    if (value.length <= 0) {
       return;
     }
     value = value.toLowerCase();
@@ -94,7 +102,7 @@ class WasteWizard extends Component {
   };
 
   render() {
-    const { items, results, favourites, search } = this.state;
+    const { items, results, favourites, search, loaded } = this.state;
     const toDisplay = {};
     const favs = {};
 
@@ -112,8 +120,52 @@ class WasteWizard extends Component {
         <section className="favouriteSection">
           <div className="container">
             <h2>Favourites</h2>
-            <SearchResults items={favs} favoriteItem={this.handleFavorite} />
+            <SearchResults
+              caption={"Favourites List"}
+              items={favs}
+              favoriteItem={this.handleFavorite}
+            />
           </div>
+        </section>
+      );
+    }
+
+    // Loading State
+    let resultList = (
+      <div className="EmptyLoading">
+        <LoadingIcon />
+        <span className="visually-hidden">Please wait, loading database.</span>
+      </div>
+    );
+
+    // Empty State
+    if (loaded) {
+      resultList = (
+        <div className="EmptyLoading" role="region" aria-live="polite">
+          <EmptyIcon />
+          <h3>Nothing found</h3>
+          <span>
+            Sorry, we found no results for "{search}".
+            <br />
+            Try searching for something else.
+          </span>
+        </div>
+      );
+    }
+
+    if (results.length > 0) {
+      resultList = (
+        <section className="resultSection">
+          <div role="region" aria-live="polite">
+            <span className="visually-hidden">
+              {results.length} results were found
+            </span>
+          </div>
+          <SearchResults
+            caption={`Search Results for ${search}`}
+            items={toDisplay}
+            favoriteItem={this.handleFavorite}
+          />
         </section>
       );
     }
@@ -126,7 +178,7 @@ class WasteWizard extends Component {
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
           />
-          <SearchResults items={toDisplay} favoriteItem={this.handleFavorite} />
+          {resultList}
         </div>
         {favouriteList}
       </React.Fragment>

@@ -3,7 +3,7 @@ import WasteItem from "../WasteItem/WasteItem";
 import "./SearchResults.scss";
 
 const SearchResults = props => {
-  const { items, favoriteItem } = props;
+  const { items, caption, favoriteItem } = props;
   const results = [];
   if (items) {
     Object.keys(items).forEach(element => {
@@ -22,7 +22,7 @@ const SearchResults = props => {
   }
   return (
     <table>
-      <caption>Search Results</caption>
+      <caption>{caption}</caption>
       <thead>
         <tr>
           <th scope="col">Favourite</th>

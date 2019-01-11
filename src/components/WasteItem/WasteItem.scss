@@ -7,6 +7,23 @@
   }
 }
 
+td {
+  &.star {
+    width: 40px;
+  }
+  &.title {
+    width: 300px;
+    // TODO: Responsiveness
+  }
+  &.body {
+    a {
+      color: $blue;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  }
+}
 .favButton {
   all: unset;
   cursor: pointer;

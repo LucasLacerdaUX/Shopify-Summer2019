@@ -6,7 +6,7 @@ const WasteItem = props => {
   const { id, title, body, favourited, favoriteItem } = props;
   return (
     <tr>
-      <td>
+      <td className="star">
         <button
           className={favourited ? "favButton favourited" : "favButton"}
           onClick={() => favoriteItem(id)}
@@ -17,8 +17,8 @@ const WasteItem = props => {
           </span>
         </button>
       </td>
-      <td>{title}</td>
-      <td dangerouslySetInnerHTML={{ __html: body }} />
+      <td className="title">{title}</td>
+      <td className="body" dangerouslySetInnerHTML={{ __html: body }} />
     </tr>
   );
 };
