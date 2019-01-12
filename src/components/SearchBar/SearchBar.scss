@@ -20,6 +20,7 @@
 
     &:focus {
       outline: none;
+      border-width: 2px;
       border-color: $green;
       box-shadow: 0 6px 22px rgba($green, 0.2);
     }

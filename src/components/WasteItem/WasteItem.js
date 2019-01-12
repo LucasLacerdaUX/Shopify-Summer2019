@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { ReactComponent as StarIcon } from "./Star.svg";
 import "./WasteItem.scss";
 
@@ -23,4 +24,19 @@ const WasteItem = props => {
   );
 };
 
+WasteItem.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  body: PropTypes.string,
+  favourited: PropTypes.bool,
+  favoriteItem: PropTypes.func
+};
+
+WasteItem.defaultProps = {
+  id: 0,
+  title: "",
+  body: "",
+  favourited: false,
+  favoriteItem: null
+};
 export default WasteItem;

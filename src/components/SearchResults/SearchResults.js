@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import WasteItem from "../WasteItem/WasteItem";
 import "./SearchResults.scss";
 
@@ -33,6 +34,17 @@ const SearchResults = props => {
       <tbody>{results}</tbody>
     </table>
   );
+};
+
+SearchResults.propTypes = {
+  items: PropTypes.object.isRequired,
+  caption: PropTypes.string,
+  favoriteItem: PropTypes.func
+};
+
+SearchResults.defaultProps = {
+  caption: "Search Results",
+  favoriteItem: null
 };
 
 export default SearchResults;

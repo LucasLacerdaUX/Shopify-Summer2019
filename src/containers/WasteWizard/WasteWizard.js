@@ -12,10 +12,13 @@ class WasteWizard extends Component {
     results: [],
     favourites: [],
     search: "takeout",
+    lastSearch: "",
     loaded: false
   };
 
   componentDidMount() {
+    const { search } = this.state;
+
     // Perform request
     axios
       .get(
@@ -28,9 +31,9 @@ class WasteWizard extends Component {
           element.favourited = false;
         });
 
-        // Update state and search for takeout
+        // Update state and immediatly perform first search
         this.setState({ items: { ...response["data"] }, loaded: true }, () =>
-          this.search("takeout")
+          this.search(search)
         );
       });
   }
@@ -56,13 +59,10 @@ class WasteWizard extends Component {
   }
 
   search(value) {
-    if (value.length <= 0) {
-      return;
-    }
     value = value.toLowerCase();
-    const results = [];
     const { items } = this.state;
 
+    const results = [];
     Object.keys(items).forEach(element => {
       const waste = items[element];
       if (
@@ -72,7 +72,7 @@ class WasteWizard extends Component {
         results.push(waste.id);
       }
     });
-    this.setState({ results: results });
+    this.setState({ results: results, lastSearch: value });
   }
 
   handleFavorite = item => {
@@ -102,7 +102,14 @@ class WasteWizard extends Component {
   };
 
   render() {
-    const { items, results, favourites, search, loaded } = this.state;
+    const {
+      items,
+      results,
+      favourites,
+      search,
+      lastSearch,
+      loaded
+    } = this.state;
     const toDisplay = {};
     const favs = {};
 
@@ -145,7 +152,7 @@ class WasteWizard extends Component {
           <EmptyIcon />
           <h3>Nothing found</h3>
           <span>
-            Sorry, we found no results for "{search}".
+            Sorry, we found no results for "{lastSearch}".
             <br />
             Try searching for something else.
           </span>
@@ -162,7 +169,7 @@ class WasteWizard extends Component {
             </span>
           </div>
           <SearchResults
-            caption={`Search Results for ${search}`}
+            caption={`Search Results for ${lastSearch}`}
             items={toDisplay}
             favoriteItem={this.handleFavorite}
           />

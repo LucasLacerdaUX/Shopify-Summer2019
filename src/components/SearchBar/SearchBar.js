@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./SearchBar.scss";
 import { ReactComponent as SearchIcon } from "./Search.svg";
 
@@ -28,6 +29,16 @@ const SearchBar = props => {
       </div>
     </form>
   );
+};
+
+SearchBar.propTypes = {
+  searchValue: PropTypes.string,
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired
+};
+
+SearchBar.defaultProps = {
+  searchValue: ""
 };
 
 export default SearchBar;
