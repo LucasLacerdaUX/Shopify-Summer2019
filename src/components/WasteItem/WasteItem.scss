@@ -9,7 +9,7 @@
 
 td {
   &.star {
-    width: 40px;
+    width: $icon-big;
   }
   &.title {
     width: 300px;
@@ -27,17 +27,16 @@ td {
 .favButton {
   all: unset;
   cursor: pointer;
-  padding: 5px;
   transition: 0.2s background-color ease-in-out;
-  border-radius: 99px;
-  width: 30px;
-  height: 30px;
+  border-radius: $radius-full;
+  width: $icon-big;
+  height: $icon-big;
   display: flex;
   align-items: center;
   justify-content: center;
 
   svg {
-    width: 24px;
+    width: $icon-default;
     z-index: 5;
   }
   .starIcon {

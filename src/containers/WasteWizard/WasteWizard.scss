@@ -1,15 +1,15 @@
 @import "../../styles/shared.scss";
 
 .container {
-  width: 1024px;
-  padding: 1rem;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1024px;
+  padding: $spacing-default;
   margin: 0 auto;
 }
 
 .favouriteSection {
   background: $green-lighter;
-  padding: 0.2rem;
+  padding: $spacing-smaller;
 
   h2 {
     color: $green;
@@ -27,20 +27,21 @@
   }
   span {
     text-align: center;
-    color: grey;
+    color: $grey;
   }
 }
 
 #EmptyIcon {
-  width: 80px;
+  width: $icon-huge;
   fill: $grey;
 }
 
 #SvgIconLoading {
-  width: 60px;
+  width: $icon-bigger;
   fill: $green;
   animation: spin1 1s infinite linear;
 }
+
 @keyframes spin1 {
   0% {
     -moz-transform: rotate(320deg);
