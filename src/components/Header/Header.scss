@@ -7,5 +7,11 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: $spacing-big;
+  padding: $spacing-default;
+  font-size: 0.75rem;
+
+  @media #{$mq-desktop} {
+    padding: $spacing-big;
+    font-size: 1rem;
+  }
 }

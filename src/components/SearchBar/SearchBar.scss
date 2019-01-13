@@ -3,14 +3,17 @@
 .searchForm {
   display: flex;
   flex-direction: row;
-  padding: $spacing-big 0;
+  padding: $spacing-small 0;
+  @media #{$mq-desktop} {
+    padding: $spacing-big 0;
+  }
 
   .searchLabel {
     display: none;
   }
 
   .searchInput {
-    font-size: $text-big;
+    font-size: $text-default;
     padding: $spacing-default;
     border-radius: $radius-default;
     border: 1px solid $grey;
@@ -24,11 +27,15 @@
       border-color: $green;
       box-shadow: $shadow-deep rgba($green, 0.2);
     }
+
+    @media #{$mq-desktop} {
+      font-size: $text-big;
+    }
   }
 
   .searchButton {
     all: unset;
-    padding: $spacing-small;
+    padding: $spacing-smaller $spacing-small;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,8 +46,16 @@
     box-shadow: $shadow-default rgba($text-dark, 0.15);
     transition: 0.3s box-shadow ease-in-out, 0.25s background-color ease-in-out;
 
-    .svg {
-      fill: white;
+    @media #{$mq-desktop} {
+      padding: $spacing-small;
+    }
+
+    svg {
+      fill: $text-light;
+      width: $icon-default;
+      @media #{$mq-desktop} {
+        width: $icon-big;
+      }
     }
 
     &:hover,

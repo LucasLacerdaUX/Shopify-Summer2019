@@ -3,8 +3,12 @@
 .container {
   width: 100%;
   max-width: 1024px;
-  padding: $spacing-default;
+  padding: $spacing-small;
   margin: 0 auto;
+
+  @media #{$mq-desktop} {
+    padding: $spacing-default;
+  }
 }
 
 .favouriteSection {
