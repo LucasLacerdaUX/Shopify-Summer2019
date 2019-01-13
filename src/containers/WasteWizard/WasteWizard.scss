@@ -35,7 +35,7 @@
   }
 }
 
-#EmptyIcon {
+#SvgIconEmpty {
   width: $icon-huge;
   fill: $grey;
 }
@@ -44,6 +44,11 @@
   width: $icon-bigger;
   fill: $green;
   animation: spin1 1s infinite linear;
+}
+
+#SvgIconError {
+  fill: $grey;
+  width: $icon-huge;
 }
 
 @keyframes spin1 {

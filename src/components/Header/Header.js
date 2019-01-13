@@ -5,9 +5,9 @@ import "./Header.scss";
 const Header = props => {
   const { title } = props;
   return (
-    <div className="header">
+    <header className="header">
       <h1>{title}</h1>
-    </div>
+    </header>
   );
 };
 
