@@ -8,10 +8,10 @@
   justify-content: center;
   text-align: center;
   padding: $spacing-default;
-  font-size: 0.75rem;
+  font-size: $text-small;
 
   @media #{$mq-desktop} {
     padding: $spacing-big;
-    font-size: 1rem;
+    font-size: $text-default;
   }
 }

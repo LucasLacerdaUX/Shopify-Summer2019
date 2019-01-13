@@ -19,7 +19,7 @@
     border: 1px solid $grey;
     flex: 1;
     margin-right: $spacing-default;
-    transition: 0.3s box-shadow ease-in-out;
+    transition: $transition-duration-default box-shadow $transition-timing-1;
 
     &:focus {
       outline: none;
@@ -44,7 +44,8 @@
     cursor: pointer;
     color: $text-light;
     box-shadow: $shadow-default rgba($text-dark, 0.15);
-    transition: 0.3s box-shadow ease-in-out, 0.25s background-color ease-in-out;
+    transition: $transition-duration-default box-shadow $transition-timing-1,
+      $transition-duration-default background-color $transition-timing-1;
 
     @media #{$mq-desktop} {
       padding: $spacing-small;

@@ -27,7 +27,7 @@ td {
 .favButton {
   all: unset;
   cursor: pointer;
-  transition: 0.2s background-color ease-in-out;
+  transition: $transition-duration-default background-color $transition-timing-1;
   border-radius: $radius-full;
   width: $icon-big;
   height: $icon-big;
@@ -41,7 +41,6 @@ td {
   }
   .starIcon {
     fill: $grey;
-    transition: 0.2s fill ease-in-out;
   }
 
   &:hover,
@@ -57,7 +56,7 @@ td {
   &.favourited {
     svg {
       will-change: width;
-      animation: resize 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
+      animation: resize $transition-duration-quick $transition-timing-1;
     }
 
     .starIcon {
