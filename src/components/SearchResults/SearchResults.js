@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import WasteItem from "../WasteItem/WasteItem";
+import WasteItem from "../WasteItem";
 import "./SearchResults.scss";
 
 const SearchResults = props => {

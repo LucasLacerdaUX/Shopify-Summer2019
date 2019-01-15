@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import Header from "./components/Header/Header";
-import WasteWizard from "./containers/WasteWizard/WasteWizard";
+import WasteWizard from "./containers/WasteWizard";
 
 const App = () => (
   <>

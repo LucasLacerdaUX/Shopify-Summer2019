@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import SearchResults from "../../components/SearchResults/SearchResults";
+import SearchResults from "../../components/SearchResults";
 import axios from "axios";
-import SearchBar from "../../components/SearchBar/SearchBar";
+import SearchBar from "../../components/SearchBar";
 import { ReactComponent as LoadingIcon } from "./LoadingIcon.svg";
 import { ReactComponent as EmptyIcon } from "./EmptyIcon.svg";
 import { ReactComponent as ErrorIcon } from "./ErrorIcon.svg";
