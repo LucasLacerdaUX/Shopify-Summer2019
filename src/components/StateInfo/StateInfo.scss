@@ -1,0 +1,30 @@
+@import "../../styles/shared.scss";
+
+.EmptyLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: $grey-dark;
+  h3 {
+    margin-bottom: 0;
+    color: $green;
+  }
+}
+
+#SvgIconEmpty {
+  width: $icon-huge;
+  fill: $grey;
+}
+
+#SvgIconLoading {
+  width: $icon-bigger;
+  fill: $green;
+  animation: spin1 1s infinite linear;
+}
+
+#SvgIconError {
+  fill: $grey;
+  width: $icon-huge;
+}

@@ -20,37 +20,6 @@
   }
 }
 
-.EmptyLoading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  h3 {
-    margin-bottom: 0;
-    color: $green;
-  }
-  span {
-    text-align: center;
-    color: $grey;
-  }
-}
-
-#SvgIconEmpty {
-  width: $icon-huge;
-  fill: $grey;
-}
-
-#SvgIconLoading {
-  width: $icon-bigger;
-  fill: $green;
-  animation: spin1 1s infinite linear;
-}
-
-#SvgIconError {
-  fill: $grey;
-  width: $icon-huge;
-}
-
 @keyframes spin1 {
   0% {
     -moz-transform: rotate(320deg);

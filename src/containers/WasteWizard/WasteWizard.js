@@ -3,9 +3,10 @@ import SearchResults from "../../components/SearchResults/SearchResults";
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { ReactComponent as LoadingIcon } from "./LoadingIcon.svg";
-import { ReactComponent as EmptyIcon } from "./WasteIcon.svg";
+import { ReactComponent as EmptyIcon } from "./EmptyIcon.svg";
 import { ReactComponent as ErrorIcon } from "./ErrorIcon.svg";
 import "./WasteWizard.scss";
+import StateInfo from "../../components/StateInfo/StateInfo";
 
 class WasteWizard extends Component {
   state = {
@@ -14,7 +15,8 @@ class WasteWizard extends Component {
     favourites: [],
     search: "takeout",
     lastSearch: "",
-    loaded: 0
+    loadingComplete: false,
+    error: false
   };
 
   componentDidMount() {
@@ -33,13 +35,18 @@ class WasteWizard extends Component {
         });
 
         // Update state and immediatly perform first search
-        this.setState({ items: { ...response["data"] }, loaded: 1 }, () =>
-          this.search(search)
+        this.setState(
+          {
+            items: { ...response["data"] },
+            loadingComplete: true,
+            error: false
+          },
+          () => this.search(search)
         );
       })
       .catch(error => {
         console.log("deu erro");
-        this.setState({ loaded: -1 });
+        this.setState({ loadingComplete: false, error: true });
       });
   }
 
@@ -124,90 +131,81 @@ class WasteWizard extends Component {
       favourites,
       search,
       lastSearch,
-      loaded
+      loadingComplete,
+      error
     } = this.state;
-    const resultsItems = {};
-    const favItems = {};
 
-    results.forEach(element => {
-      resultsItems[element] = items[element];
-    });
-
-    // Loading State
-    let resultList = (
-      <div className="EmptyLoading">
-        <LoadingIcon />
-        <h3>Loading database...</h3>
-
-        <span className="visually-hidden">Please wait, loading database.</span>
-      </div>
+    // Loading State by default
+    let resultContent = (
+      <StateInfo title="Loading Database..." icon={<LoadingIcon />} />
     );
+    let favouriteContent = null;
 
-    if (loaded === -1) {
-      resultList = (
-        <div className="EmptyLoading" role="region" aria-live="polite">
-          <ErrorIcon />
-          <h3>Sorry, there was an error</h3>
-          <span>
-            There was an error connecting to the database.
-            <br />
-            Please reload the page and try again.
-          </span>
-        </div>
-      );
-    }
-    // Empty State
-    if (loaded === 1) {
-      resultList = (
-        <div className="EmptyLoading" role="region" aria-live="polite">
-          <EmptyIcon />
-          <h3>Nothing found</h3>
-          <span>
-            {`Sorry, we found no results for "${lastSearch}".`}
-            <br />
-            Try searching for something else.
-          </span>
-        </div>
+    if (error) {
+      // Error State
+      resultContent = (
+        <StateInfo title="Sorry, there was an error" icon={<ErrorIcon />}>
+          There was an error connecting to the database.
+          <br />
+          Please reload the page and try again.
+        </StateInfo>
       );
     }
 
-    // Search Results
-    if (results.length > 0) {
-      resultList = (
-        <section className="resultSection">
-          <div role="region" aria-live="polite">
-            <span className="visually-hidden">
-              {`${results.length} results were found`}
-            </span>
-          </div>
-          <SearchResults
-            caption={`Search Results for ${lastSearch}`}
-            items={resultsItems}
-            favoriteItem={this.handleFavorite}
-          />
-        </section>
+    if (loadingComplete) {
+      // Empty State
+      resultContent = (
+        <StateInfo title="Nothing found" icon={<EmptyIcon />}>
+          {`Sorry, we found no results for "${lastSearch}"`}
+          <br />
+          Try searching for something else.
+        </StateInfo>
       );
-    }
 
-    // Favourite List
-    favourites.forEach(element => {
-      favItems[element] = items[element];
-    });
+      // Search Results
+      if (results.length > 0) {
+        // Prepare Search Results to be displayed
+        const resultsItems = {};
+        results.forEach(element => {
+          resultsItems[element] = items[element];
+        });
 
-    let favouriteList = null;
-    if (favourites.length > 0) {
-      favouriteList = (
-        <section className="favouriteSection">
-          <div className="container">
-            <h2>Favourites</h2>
+        resultContent = (
+          <section className="resultSection">
+            <div role="region" aria-live="polite">
+              <span className="visually-hidden">
+                {`${results.length} results were found`}
+              </span>
+            </div>
             <SearchResults
-              caption={"Favourites List"}
-              items={favItems}
+              caption={`Search Results for ${lastSearch}`}
+              items={resultsItems}
               favoriteItem={this.handleFavorite}
             />
-          </div>
-        </section>
-      );
+          </section>
+        );
+      }
+
+      if (favourites.length > 0) {
+        // Prepares Favourite List to be displayed
+        const favItems = {};
+        favourites.forEach(element => {
+          favItems[element] = items[element];
+        });
+
+        favouriteContent = (
+          <section className="favouriteSection">
+            <div className="container">
+              <h2>Favourites</h2>
+              <SearchResults
+                caption={"Favourites List"}
+                items={favItems}
+                favoriteItem={this.handleFavorite}
+              />
+            </div>
+          </section>
+        );
+      }
     }
 
     return (
@@ -218,9 +216,9 @@ class WasteWizard extends Component {
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
           />
-          {resultList}
+          {resultContent}
         </div>
-        {favouriteList}
+        {favouriteContent}
       </React.Fragment>
     );
   }
