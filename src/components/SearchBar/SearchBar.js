@@ -4,12 +4,18 @@ import "./SearchBar.scss";
 import { ReactComponent as SearchIcon } from "./Search.svg";
 
 const SearchBar = props => {
-  const { searchValue, handleChange, handleSubmit } = props;
+  const {
+    searchValue,
+    labelInput,
+    labelSubmit,
+    handleChange,
+    handleSubmit
+  } = props;
   return (
     <form onSubmit={handleSubmit}>
       <div className="searchForm" role="search">
         <label id="searchLabel" className="searchLabel" htmlFor="search">
-          Search Wastes
+          {labelInput}
         </label>
         <input
           id="search"
@@ -23,7 +29,7 @@ const SearchBar = props => {
           required
         />
         <button className="searchButton" type="submit" value="Search">
-          <span className="visually-hidden">Search</span>
+          <span className="visually-hidden">{labelSubmit}</span>
           <SearchIcon />
         </button>
       </div>
@@ -33,12 +39,16 @@ const SearchBar = props => {
 
 SearchBar.propTypes = {
   searchValue: PropTypes.string,
+  labelInput: PropTypes.string,
+  labelSubmit: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired
 };
 
 SearchBar.defaultProps = {
-  searchValue: ""
+  searchValue: "",
+  labelInput: "Search Wastes",
+  labelSubmit: "Search"
 };
 
 export default SearchBar;
