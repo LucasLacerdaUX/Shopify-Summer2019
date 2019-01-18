@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import SearchResults from "../../components/SearchResults";
 import axios from "axios";
+import WasteTable from "../../components/WasteTable";
 import SearchBar from "../../components/SearchBar";
+import StateInfo from "../../components/StateInfo/StateInfo";
 import { ReactComponent as LoadingIcon } from "./LoadingIcon.svg";
 import { ReactComponent as EmptyIcon } from "./EmptyIcon.svg";
 import { ReactComponent as ErrorIcon } from "./ErrorIcon.svg";
 import "./WasteWizard.scss";
-import StateInfo from "../../components/StateInfo/StateInfo";
 
 class WasteWizard extends Component {
   state = {
@@ -177,7 +177,7 @@ class WasteWizard extends Component {
                 {`${results.length} results were found`}
               </span>
             </div>
-            <SearchResults
+            <WasteTable
               caption={`Search Results for ${lastSearch}`}
               items={resultsItems}
               favoriteItem={this.handleFavorite}
@@ -197,7 +197,7 @@ class WasteWizard extends Component {
           <section className="favouriteSection">
             <div className="container">
               <h2>Favourites</h2>
-              <SearchResults
+              <WasteTable
                 caption={"Favourites List"}
                 items={favItems}
                 favoriteItem={this.handleFavorite}

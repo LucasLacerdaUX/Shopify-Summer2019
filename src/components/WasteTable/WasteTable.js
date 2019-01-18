@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import WasteItem from "../WasteItem";
-import "./SearchResults.scss";
+import WasteItem from "./WasteItem";
+import "./WasteTable.scss";
 
-const SearchResults = props => {
+const WasteTable = props => {
   const { items, caption, favoriteItem } = props;
   const results = [];
   if (items) {
@@ -36,15 +36,15 @@ const SearchResults = props => {
   );
 };
 
-SearchResults.propTypes = {
+WasteTable.propTypes = {
   items: PropTypes.object.isRequired,
   caption: PropTypes.string,
   favoriteItem: PropTypes.func
 };
 
-SearchResults.defaultProps = {
+WasteTable.defaultProps = {
   caption: "Search Results",
   favoriteItem: null
 };
 
-export default SearchResults;
+export default WasteTable;
