@@ -12,7 +12,7 @@ It can be used to create empty state screens, error screens or loading spinners.
 | _title_    | `string` | `""`         |           | Title of the state component.                                                                         |
 | _children_ | `node`   | `null`       |           | Add text explaining the current state or any other component/HTML code. Shown after the title.        |
 
-## Usage Exampless
+## Usage Examples
 
 1. Import the component:
 
@@ -28,6 +28,6 @@ import StateInfo from "../components/StateInfo";
 </StateInfo>
 ```
 
-![alt text](http://lacerda.design/Shopify2019/StateInfo.png "StateInfo component on Desktops")
+![alt text](http://lacerda.design/Shopify2019/StateInfo.png "StateInfo component")
 
 _*StateInfo component*_

@@ -12,7 +12,7 @@ This is the SearchBar form. It contains a text input and a button to submit the 
 | _handleChange_ | `func`   |                   | ✓         | Function to handle text change inside the input. Use it for two-way data binding. |
 | _handleSubmit_ | `func`   |                   | ✓         | Function executed on form submitted (both via enter or via button)                |
 
-## Usage Exampless
+## Usage Examples
 
 1. Import the component:
 

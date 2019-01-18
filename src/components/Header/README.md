@@ -8,7 +8,7 @@ This is the header component. It contains a title and has a blue-to-green gradie
 | ------- | -------- | ------------------------ | --------- | ------------------------------------------------------------- |
 | _title_ | `string` | `"Toronto Waste Lookup"` |           | The title displayed as an h1 tag inside the header component. |
 
-## Usage Exampless
+## Usage Examples
 
 1. Import the component:
 
@@ -24,8 +24,8 @@ import Header from "../components/Header";
 
 ![alt text](http://lacerda.design/Shopify2019/Header.png "Header component on Desktops")
 
-_*Headert component on Desktops*_
+_*Header component on Desktops*_
 
 ![alt text](http://lacerda.design/Shopify2019/HeaderMobile.png "Header component on Mobile Devices")
 
-_*Headert component on Mobile Devices*_
+_*Header component on Mobile Devices*_
