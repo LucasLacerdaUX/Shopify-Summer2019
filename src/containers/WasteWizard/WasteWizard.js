@@ -174,7 +174,7 @@ class WasteWizard extends Component {
           <section className="resultSection">
             <div role="region" aria-live="polite">
               <span className="visually-hidden">
-                {`${results.length} results were found`}
+                {`${results.length} results were found for ${lastSearch}`}
               </span>
             </div>
             <WasteTable

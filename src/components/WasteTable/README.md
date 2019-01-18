@@ -43,6 +43,6 @@ import WasteTable from "../components/WasteTable";
 />
 ```
 
-![alt text](http://lacerda.design/Shopify2019/WasteTable.png "WasteTable component on Desktops")
+![WasteTable component on Desktops](http://lacerda.design/Shopify2019/WasteTable.png "WasteTable component on Desktops")
 
 _*WasteTable component*_
