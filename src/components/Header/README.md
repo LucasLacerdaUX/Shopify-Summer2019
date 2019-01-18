@@ -22,10 +22,10 @@ import Header from "../components/Header";
 <Header title="Toronto Waste Lookup" />
 ```
 
-![alt text](http://lacerda.design/Shopify2019/Header.png "Header component on Desktops")
+![Header component on Desktops](http://lacerda.design/Shopify2019/Header.png "Header component on Desktops")
 
 _*Header component on Desktops*_
 
-![alt text](http://lacerda.design/Shopify2019/HeaderMobile.png "Header component on Mobile Devices")
+![Header component on Mobile Devices](http://lacerda.design/Shopify2019/HeaderMobile.png "Header component on Mobile Devices")
 
 _*Header component on Mobile Devices*_

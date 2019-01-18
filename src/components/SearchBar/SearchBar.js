@@ -25,8 +25,8 @@ const SearchBar = props => {
           onChange={handleChange}
           placeholder="Search wastes"
           aria-labelledby="searchLabel"
+          maxLength="100"
           autoFocus
-          required
         />
         <button className="searchButton" type="submit" value="Search">
           <span className="visually-hidden">{labelSubmit}</span>

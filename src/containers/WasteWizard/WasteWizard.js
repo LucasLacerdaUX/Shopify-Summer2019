@@ -76,18 +76,20 @@ class WasteWizard extends Component {
 
   // Search in database by keyword or title
   search(value) {
-    value = value.toLowerCase();
-    const { items } = this.state;
     const results = [];
-    Object.keys(items).forEach(element => {
-      const waste = items[element];
-      if (
-        waste.keywords.toLowerCase().includes(value) ||
-        waste.title.toLowerCase().includes(value)
-      ) {
-        results.push(waste.id);
-      }
-    });
+    if (value.length > 0) {
+      value = value.toLowerCase();
+      const { items } = this.state;
+      Object.keys(items).forEach(element => {
+        const waste = items[element];
+        if (
+          waste.keywords.toLowerCase().includes(value) ||
+          waste.title.toLowerCase().includes(value)
+        ) {
+          results.push(waste.id);
+        }
+      });
+    }
     this.setState({ results: results, lastSearch: value });
   }
 
@@ -155,19 +157,24 @@ class WasteWizard extends Component {
     if (loadingComplete) {
       // Empty State
       resultContent = (
-        <StateInfo title="Nothing found" icon={<EmptyIcon />}>
-          {`Sorry, we found no results for "${lastSearch}"`}
+        <StateInfo
+          title={lastSearch ? "Nothing found" : "Search on Waste Wizard"}
+          icon={<EmptyIcon />}
+        >
+          {lastSearch
+            ? `Sorry, no results for "${lastSearch}". Try something else.`
+            : "Use the input above to search for something."}
           <br />
-          Try searching for something else.
+          e.g.: takeout, plastic, cardboard.
         </StateInfo>
       );
 
       // Search Results
       if (results.length > 0) {
-        // Prepare Search Results to be displayed
-        const resultsItems = {};
+        // Prepare Search Results items to be displayed
+        const resultsItems = [];
         results.forEach(element => {
-          resultsItems[element] = items[element];
+          resultsItems.push(items[element]);
         });
 
         resultContent = (
@@ -187,10 +194,10 @@ class WasteWizard extends Component {
       }
 
       if (favourites.length > 0) {
-        // Prepares Favourite List to be displayed
-        const favItems = {};
+        // Prepares Favourite List items to be displayed
+        const favItems = [];
         favourites.forEach(element => {
-          favItems[element] = items[element];
+          favItems.push(items[element]);
         });
 
         favouriteContent = (

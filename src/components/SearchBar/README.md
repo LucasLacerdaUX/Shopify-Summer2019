@@ -30,10 +30,10 @@ import SearchBar from "../components/SearchBar";
 />
 ```
 
-![alt text](http://lacerda.design/Shopify2019/SearchBar.png "SearchBar component on Desktops")
+![SearchBar component on Desktops](http://lacerda.design/Shopify2019/SearchBar.png "SearchBar component on Desktops")
 
 _*SearchBar component on Desktops*_
 
-![alt text](http://lacerda.design/Shopify2019/SearchBarMobile.png "SearchBar component on Mobile Devices")
+![SearchBar component on Mobile Devices](http://lacerda.design/Shopify2019/SearchBarMobile.png "SearchBar component on Mobile Devices")
 
 _*SearchBar component on Mobile Devices*_

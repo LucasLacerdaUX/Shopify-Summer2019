@@ -7,8 +7,7 @@ const WasteTable = props => {
   const { items, caption, favoriteItem } = props;
   const results = [];
   if (items) {
-    Object.keys(items).forEach(element => {
-      const item = items[element];
+    items.forEach(item => {
       results.push(
         <WasteItem
           key={item.id}
@@ -37,7 +36,7 @@ const WasteTable = props => {
 };
 
 WasteTable.propTypes = {
-  items: PropTypes.object.isRequired,
+  items: PropTypes.array.isRequired,
   caption: PropTypes.string,
   favoriteItem: PropTypes.func
 };

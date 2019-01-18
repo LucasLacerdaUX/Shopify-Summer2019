@@ -6,7 +6,7 @@ The WasteTable is the component responsible of drawing a list of WasteItems in a
 
 | Prop           | PropType | DefaultValue       | Required? | Description                                                                 |
 | -------------- | -------- | ------------------ | --------- | --------------------------------------------------------------------------- |
-| _items_        | `object` |                    | ✓         | The list of waste items inside the table.                                   |
+| _items_        | `array`  |                    | ✓         | The list of waste items inside the table.                                   |
 | _caption_      | `string` | `"Search Results"` |           | A descriptive label for the table (for accessibility purposes).             |
 | _favoriteItem_ | `func`   | `null`             |           | Function to handle the favourite action of any WasteItem inside this table. |
 
@@ -20,17 +20,25 @@ import WasteTable from "../components/WasteTable";
 
 2. Make sure you have a list of items in the following sample format:
 
-```json
-"items": {
-    0: {
-        "body": "HTML content here",
-        "category": "Garbage",
-        "favourited": false,
-        "id": 0,
-        "keywords": "bread bag tag, milk bag tag, elastic band",
-        "title": "Garbage (wrapping and tying)"
-    }
-}
+```js
+results = [
+  {
+    body: "HTML content here",
+    category: "Garbage",
+    favourited: false,
+    id: 0,
+    keywords: "bread bag tag, milk bag tag, elastic band",
+    title: "Item #0"
+  },
+  {
+    body: "HTML content here",
+    category: "Garbage",
+    favourited: true,
+    id: 1,
+    keywords: "plastic, takeout",
+    title: "Item #1"
+  }
+];
 ```
 
 3. Add the JSX code:
@@ -38,7 +46,7 @@ import WasteTable from "../components/WasteTable";
 ```jsx
 <WasteTable
   caption={"Favourites List"}
-  items={items}
+  items={results}
   favoriteItem={this.handleFavorite}
 />
 ```

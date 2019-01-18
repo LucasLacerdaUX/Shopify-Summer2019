@@ -28,6 +28,6 @@ import StateInfo from "../components/StateInfo";
 </StateInfo>
 ```
 
-![alt text](http://lacerda.design/Shopify2019/StateInfo.png "StateInfo component")
+![StateInfo component](http://lacerda.design/Shopify2019/StateInfo.png "StateInfo component")
 
 _*StateInfo component*_

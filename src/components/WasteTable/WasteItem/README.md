@@ -33,10 +33,10 @@ import WasteItem from "../components/WasteItem";
 />
 ```
 
-![alt text](http://lacerda.design/Shopify2019/WasteItem.png "WasteItem component on Desktops")
+![WasteItem component on Desktops](http://lacerda.design/Shopify2019/WasteItem.png "WasteItem component on Desktops")
 
 _*WasteItem component on Desktops*_
 
-![alt text](http://lacerda.design/Shopify2019/HeaderMobile.png "Header component on Mobile Devices")
+![WasteItem component on Mobile Devices](http://lacerda.design/Shopify2019/HeaderMobile.png "WasteItem component on Mobile Devices")
 
 _*WasteItem component on Mobile Devices*_
