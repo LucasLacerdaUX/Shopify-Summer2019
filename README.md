@@ -7,7 +7,7 @@ Summer 2019 - Web Engineer Intern Challenge
 
 ## 1. Demo
 
-[View Demo](http://lacerda.design/ShopifySummer2019/)
+[View Demo](https://lucaslacerdaux.github.io/Shopify-Summer2019/)
 
 ## 2. Requirements
 

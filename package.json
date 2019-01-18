@@ -2,7 +2,7 @@
   "name": "shopify-summer2019",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gituhb.com/LucasLacerdaUX/Shopify-Summer2019",
+  "homepage": "https://lucaslacerdaux.github.io/Shopify-Summer2019/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0",
