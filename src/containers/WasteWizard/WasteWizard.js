@@ -216,7 +216,7 @@ class WasteWizard extends Component {
     }
 
     return (
-      <React.Fragment>
+      <main role="main">
         <div className="container">
           <SearchBar
             searchValue={search}
@@ -226,7 +226,7 @@ class WasteWizard extends Component {
           {resultContent}
         </div>
         {favouriteContent}
-      </React.Fragment>
+      </main>
     );
   }
 }

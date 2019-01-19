@@ -5,7 +5,7 @@ import "./Header.scss";
 const Header = props => {
   const { title } = props;
   return (
-    <header className="header">
+    <header className="header" role="banner">
       <h1>{title}</h1>
     </header>
   );

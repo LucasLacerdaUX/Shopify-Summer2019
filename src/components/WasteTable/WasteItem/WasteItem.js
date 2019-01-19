@@ -11,11 +11,11 @@ const WasteItem = props => {
         <button
           className={favourited ? "favButton favourited" : "favButton"}
           onClick={() => favoriteItem(id)}
+          aria-label={
+            favourited ? "Remove from Favourites" : "Add to Favourites"
+          }
         >
           <StarIcon />
-          <span className="visually-hidden">
-            {favourited ? "Remove from Favourites" : "Add to Favourites"}
-          </span>
         </button>
       </td>
       <td className="title">{title}</td>

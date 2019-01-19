@@ -1,7 +1,6 @@
 # Shopify-Summer2019
 
-Summer 2019 - Web Engineer Intern Challenge
-(TODO: Write Introduction)
+This is a project developed as part of **Shopify's Web Engineer Intern (Summer 2019)** challenge. Developed using **React.js** and **Axios**.
 
 ## Table of Contents
 
@@ -60,13 +59,13 @@ The first step was to build a few design tokens to be used on the project, such 
 
 The next step was to make sure every component had a well defined style for each state. That is not only a matter of beauty, but specially important for both the general user experience and the accessibility of the application. Having easy visually distinguable components allows the user to know what's happening on the application and what he's controlling.
 
-![Component States](http://lacerda.design/Shopify2019/DesignTokens.png)
+![Component States](http://lacerda.design/Shopify2019/Components.png)
 
 ### 4.3 Framework Choice
 
 As a UI Designer and UX Developer myself, I usually start my projects by building a Design System of small components and it's respective states. When I'm designing interfaces, I like to plan and organize the small pieces as if I were coding them. React.js allows me to easily translate these UI components into code, and then, individually make them responsive, reusable and accessible.
 
-![AdobeXDtoReact](http://lacerda.design/Shopify2019/DesignTokens.png)
+![AdobeXDtoReact](http://lacerda.design/Shopify2019/XD2React.png)
 
 The components on this project were not only made as dumb as possible to ensure maximum customization capabilities but were also individually documented to make it easier to use on other projects.
 
@@ -92,8 +91,6 @@ A specific decision was made for this project: since the main interface is based
 
 The interface has been tested with both a keyboard, mouse and the Screen Reader (SR) extension [ChromeVox](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=pt-BR).
 
-#### 4.6
-
 ## 5. Technology Stack
 
 - [React.js](https://reactjs.org), using [create-react-app](https://facebook.github.io/create-react-app)
@@ -103,4 +100,10 @@ The interface has been tested with both a keyboard, mouse and the Screen Reader 
 
 ## 6. References
 
-- TODO: Add
+1. [Search | Accesibility Guidelies](http://web-accessibility.carnegiemuseums.org/code/search/)
+2. [Accessibility Matters - Search Form](https://www.a11ymatters.com/pattern/accessible-search/)
+3. [Improving accessibility on GOV.UK search - Technology in Government](https://gdstechnology.blog.gov.uk/2014/08/14/improving-accessibility-on-gov-uk-search/)
+4. [Aria Live Regions | MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+5. [Using aria-live | bitsofcode](https://bitsofco.de/using-aria-live/)
+6. [Search Landmark | ARIA Landmarks Example - W3C](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/search.html)
+7. [H44: Using label elements to associate text labels with form controls](https://www.w3.org/TR/WCAG20-TECHS/H44.html)

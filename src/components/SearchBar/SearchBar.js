@@ -14,22 +14,23 @@ const SearchBar = props => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="searchForm" role="search">
-        <label id="searchLabel" className="searchLabel" htmlFor="search">
-          {labelInput}
-        </label>
         <input
-          id="search"
+          id="searchInput"
           className="searchInput"
           type="text"
           value={searchValue}
           onChange={handleChange}
           placeholder="Search wastes"
-          aria-labelledby="searchLabel"
+          aria-label={labelInput}
           maxLength="100"
           autoFocus
         />
-        <button className="searchButton" type="submit" value="Search">
-          <span className="visually-hidden">{labelSubmit}</span>
+        <button
+          className="searchButton"
+          type="submit"
+          aria-label={labelSubmit}
+          value="Search"
+        >
           <SearchIcon />
         </button>
       </div>
