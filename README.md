@@ -1,4 +1,8 @@
-# Shopify-Summer2019
+<p align="center">
+<img src="http://lacerda.design/Shopify2019/Logo.png"/>
+</p>
+
+# Shopify's Web Engineer Intern Challenge (Summer 2019)
 
 This is a project developed as part of **Shopify's Web Engineer Intern (Summer 2019)** challenge. Developed using **React.js** and **Axios**.
 
@@ -54,6 +58,8 @@ Before coding this project, a few design decisions had to be made to ensure the 
 The first step was to build a few design tokens to be used on the project, such as colors, typography, spacing, shadows, sizing and animation times.
 
 ![Design Tokens](http://lacerda.design/Shopify2019/DesignTokens.png)
+
+You can view the full list of Design Tokens [here](src/styles/tokens).
 
 #### 4.2.2 Components and States
 
