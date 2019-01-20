@@ -1,7 +1,7 @@
 {
-  "main.css": "/Shopify-Summer2019/static/css/main.60fb3d82.chunk.css",
-  "main.js": "/Shopify-Summer2019/static/js/main.48df5f03.chunk.js",
-  "main.js.map": "/Shopify-Summer2019/static/js/main.48df5f03.chunk.js.map",
+  "main.css": "/Shopify-Summer2019/static/css/main.2239ee0f.chunk.css",
+  "main.js": "/Shopify-Summer2019/static/js/main.3eff1a74.chunk.js",
+  "main.js.map": "/Shopify-Summer2019/static/js/main.3eff1a74.chunk.js.map",
   "static/js/1.28e51855.chunk.js": "/Shopify-Summer2019/static/js/1.28e51855.chunk.js",
   "static/js/1.28e51855.chunk.js.map": "/Shopify-Summer2019/static/js/1.28e51855.chunk.js.map",
   "runtime~main.js": "/Shopify-Summer2019/static/js/runtime~main.8a8c142e.js",
@@ -11,8 +11,8 @@
   "static/media/EmptyIcon.eb631f4c.svg": "/Shopify-Summer2019/static/media/EmptyIcon.eb631f4c.svg",
   "static/media/ErrorIcon.0858b675.svg": "/Shopify-Summer2019/static/media/ErrorIcon.0858b675.svg",
   "static/media/Search.9eda3448.svg": "/Shopify-Summer2019/static/media/Search.9eda3448.svg",
-  "static/css/main.60fb3d82.chunk.css.map": "/Shopify-Summer2019/static/css/main.60fb3d82.chunk.css.map",
+  "static/css/main.2239ee0f.chunk.css.map": "/Shopify-Summer2019/static/css/main.2239ee0f.chunk.css.map",
   "index.html": "/Shopify-Summer2019/index.html",
-  "precache-manifest.5bdc6a48474c4c1cbbcca2668961031d.js": "/Shopify-Summer2019/precache-manifest.5bdc6a48474c4c1cbbcca2668961031d.js",
+  "precache-manifest.2995efeb341ec0059e4cf0c96ee750de.js": "/Shopify-Summer2019/precache-manifest.2995efeb341ec0059e4cf0c96ee750de.js",
   "service-worker.js": "/Shopify-Summer2019/service-worker.js"
 }
