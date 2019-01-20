@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/Shopify-Summer2019/static/media/Search.9eda3448.svg"
   },
   {
-    "revision": "daa0cd9c0aab5c5403df",
+    "revision": "22b80f53721a5a92be3a",
     "url": "/Shopify-Summer2019/static/css/main.3d546515.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = [
     "url": "/Shopify-Summer2019/static/media/Star.584fd651.svg"
   },
   {
-    "revision": "daa0cd9c0aab5c5403df",
-    "url": "/Shopify-Summer2019/static/js/main.daa0cd9c.chunk.js"
+    "revision": "22b80f53721a5a92be3a",
+    "url": "/Shopify-Summer2019/static/js/main.22b80f53.chunk.js"
   },
   {
     "revision": "f653b4d0b4d5cdfc8e90fcc3c2f28ed0",
@@ -40,7 +40,7 @@ self.__precacheManifest = [
     "url": "/Shopify-Summer2019/static/media/EmptySearchIcon.9f9de71d.svg"
   },
   {
-    "revision": "765086872f52b2a0eac97fc84a21d78a",
+    "revision": "9b641ddcf74354802b9b77d368bbacdf",
     "url": "/Shopify-Summer2019/index.html"
   }
 ];
