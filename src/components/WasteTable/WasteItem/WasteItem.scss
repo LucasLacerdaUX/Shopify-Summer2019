@@ -61,10 +61,10 @@ td {
 
   &:hover,
   &:focus {
-    background-color: rgba($green-light, 0.2);
+    background-color: rgba($grey, 0.2);
     .starIcon {
       fill: none;
-      stroke: $green-light;
+      stroke: $grey;
       stroke-width: 2px;
     }
   }
@@ -72,7 +72,12 @@ td {
   &.favourited {
     svg {
       will-change: width;
-      animation: resize $transition-duration-quick $transition-timing-1;
+      animation: resize $transition-duration-default $transition-timing-1;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: rgba($green-light, 0.2);
     }
 
     .starIcon {
