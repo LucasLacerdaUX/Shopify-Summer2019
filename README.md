@@ -89,9 +89,9 @@ The components on this project were not only made as dumb as possible to ensure 
 
 ### 4.5 Accessibility
 
-The first goal I usually set on almost every single project is the same: try to make it usable for **everyone**. Tech should not divide us or magnify the inequality between us. It can be a matter of preference - some people like to navigate websites using a keyboard, others prefer mouse - or need - like people with disabilities.
+The first goal I usually set on almost every single project is the same: try to make it usable for **everyone**. Tech should not divide us or magnify the inequality between us. It can be a matter of preference - some people like to navigate websites using a keyboard, others prefer mouse - or need - like people with either temporary, situational or permanent disabilities.
 
-To ensure a great experience for everyone, many decisions on this project were based on the [Techniques for WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/) guidelines and recommendations by other professionals. Using `captions` elements to describe tables and `labels` to provide an alternative text for inputs, images and buttons are a great example on the efforts to make web apps accessible.
+To ensure a great experience for everyone, many decisions on this project were based on the [Techniques for WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/) guidelines and recommendations by other professionals. Using `captions` elements to describe tables and `labels` to provide an alternative text for inputs, images and buttons are a great example on the efforts to make web apps accessible. Touch targets, such as `button`s or `input`s meet the minimum target size of 44 by 44 pixels, as defined on [Success Criterion 2.5.5](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html).
 
 A specific decision was made for this project: since the main interface is based on a Search Results page, it's important to tell users using Screen Readers what has been searched for and how many results were found. For that, we used an `aria-live="polite"` region to make sure the content is readen by the SR and the user is informed that the result list has been updated.
 
@@ -115,3 +115,4 @@ The interface has been tested with both a keyboard, mouse and the Screen Reader 
 7. [H44: Using label elements to associate text labels with form controls](https://www.w3.org/TR/WCAG20-TECHS/H44.html)
 8. [Example 4 - Using ARIA landmarks to identify regions of a page](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA11)
 9. [Introduction to the Reduced Motion Media Query - CSS-Tricks](https://css-tricks.com/introduction-reduced-motion-media-query/)
+10. [Success Criterion 2.5.5: Target Size](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)

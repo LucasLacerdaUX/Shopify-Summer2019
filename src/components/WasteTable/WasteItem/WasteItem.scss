@@ -9,12 +9,29 @@
 
 td {
   &.star {
-    width: $icon-big;
+    width: $min-touch-size;
+    display: inline-block;
+    @media #{$mq-tablet} {
+      display: table-cell;
+    }
   }
   &.title {
-    width: 300px;
+    width: calc(100% - #{$min-touch-size});
+    display: inline-block;
+    padding: 0 $spacing-small;
+    @media #{$mq-tablet} {
+      padding: 0 $spacing-smaller;
+      width: 300px;
+      display: table-cell;
+    }
   }
   &.body {
+    display: block;
+    padding-left: $spacing-huge;
+    @media #{$mq-tablet} {
+      display: table-cell;
+    }
+
     a {
       color: $blue;
     }
@@ -28,8 +45,8 @@ td {
   cursor: pointer;
   transition: $transition-duration-default background-color $transition-timing-1;
   border-radius: $radius-full;
-  width: $icon-big;
-  height: $icon-big;
+  width: $min-touch-size;
+  height: $min-touch-size;
   display: flex;
   align-items: center;
   justify-content: center;

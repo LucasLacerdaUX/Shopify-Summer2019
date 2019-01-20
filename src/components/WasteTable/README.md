@@ -53,4 +53,8 @@ results = [
 
 ![WasteTable component on Desktops](http://lacerda.design/Shopify2019/WasteTable.png "WasteTable component on Desktops")
 
-_*WasteTable component*_
+_*WasteTable component on Desktops*_
+
+![WasteTable component on Desktops](http://lacerda.design/Shopify2019/WasteTableMobile.png "WasteTable component on Desktops")
+
+_*WasteTable component on Mobile Devices*_

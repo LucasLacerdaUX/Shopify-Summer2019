@@ -42,22 +42,13 @@
 | `$radius-default` | 4px   |
 | `$radius-full`    | 99px  |
 
-## Icon Sizing ([\_sizing.scss](_sizing.scss))
-
-| Token           | Value |
-| --------------- | ----- |
-| `$icon-small`   | 16px  |
-| `$icon-default` | 24px  |
-| `$icon-big`     | 36px  |
-| `$icon-bigger`  | 72px  |
-| `$icon-huge`    | 96px  |
-
 ## Responsive Breakpoints ([\_responsive.scss](_responsive.scss))
 
 | Token             | Value                                                                                  |
 | ----------------- | -------------------------------------------------------------------------------------- |
 | `$mq-phone`       | `"only screen and (min-width: 640px)";`                                                |
 | `$mq-phone-big`   | `"only screen and (min-device-width: 375px) and (-webkit-min-device-pixel-ratio: 3)";` |
+| `$mq-tablet`      | `"only screen and (min-width: 768px)";`                                                |
 | `$mq-desktop`     | `"only screen and (min-width: 1024px)";`                                               |
 | `$mq-desktop-big` | `"only screen and (min-width: 1280px)";`                                               |
 
@@ -67,6 +58,17 @@
 | ----------------- | ---------- |
 | `$shadow-default` | 0 2px 2px  |
 | `$shadow-deep`    | 0 6px 22px |
+
+## Sizing ([\_sizing.scss](_sizing.scss))
+
+| Token              | Value |
+| ------------------ | ----- |
+| `$icon-small`      | 16px  |
+| `$icon-default`    | 24px  |
+| `$icon-big`        | 36px  |
+| `$icon-bigger`     | 72px  |
+| `$icon-huge`       | 96px  |
+| `$min-touch-size;` | 44px  |
 
 ## Spacing ([\_spacing.scss](_spacing.scss))
 
