@@ -81,7 +81,7 @@ The components on this project were not only made as dumb as possible to ensure 
 
 - A unique `id` is defined for each individual waste item, based on its order on the list.
 
-- Search looks for the occurence of a text input on both `title` and `keywords` attributes of the waste items by using `array.includes()`. An array contains the `id`s of matching items for the current result.
+- Search looks for the occurence of a text input on the `keywords` attribute of the waste items by using `array.includes()`. An array contains the `id`s of matching items for the current result.
 
 - Favourites can be added/removed by clicking on the green star button. An array contains the `id`s of favourited items.
 

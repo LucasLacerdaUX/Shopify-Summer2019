@@ -74,17 +74,19 @@ class WasteWizard extends Component {
     });
   }
 
-  // Search in database by keyword or title
+  // Search in database by keyword
   search(value) {
     const results = [];
     if (value.length > 0) {
-      value = value.toLowerCase();
+      const t_value = value.toLowerCase().replace(/\s/g, "");
       const { items } = this.state;
       Object.keys(items).forEach(element => {
         const waste = items[element];
         if (
-          waste.keywords.toLowerCase().includes(value) ||
-          waste.title.toLowerCase().includes(value)
+          waste.keywords
+            .toLowerCase()
+            .replace(/\s/g, "")
+            .includes(t_value)
         ) {
           results.push(waste.id);
         }
