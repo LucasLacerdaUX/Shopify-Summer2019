@@ -35,6 +35,7 @@
 
   .searchButton {
     all: unset;
+    -webkit-tap-highlight-color: transparent;
     padding: $spacing-smaller $spacing-small;
     display: flex;
     align-items: center;
