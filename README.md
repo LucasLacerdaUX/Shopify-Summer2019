@@ -65,7 +65,7 @@ You can view the full list of Design Tokens [here](src/styles/tokens).
 
 The next step was to make sure every component had a well defined style for each state. That is not only a matter of beauty, but specially important for both the general user experience and the accessibility of the application. Having easy visually distinguable components allows the user to know what's happening on the application and what he's controlling.
 
-![Component States](http://lacerda.design/Shopify2019/Components.png)
+![Component States](http://lacerda.design/Shopify2019/Components.png?)
 
 ### 4.3 Framework Choice
 

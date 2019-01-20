@@ -5,7 +5,7 @@ import "./StateInfo.scss";
 const StateInfo = props => {
   const { title, children, icon } = props;
   return (
-    <div className="EmptyLoading" role="region" aria-live="polite">
+    <div className="StateInfo" role="region" aria-live="polite">
       {icon}
       <h3>{title}</h3>
       {children}

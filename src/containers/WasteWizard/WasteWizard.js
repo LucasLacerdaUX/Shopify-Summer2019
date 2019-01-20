@@ -6,6 +6,7 @@ import StateInfo from "../../components/StateInfo/StateInfo";
 import { ReactComponent as LoadingIcon } from "./LoadingIcon.svg";
 import { ReactComponent as EmptyIcon } from "./EmptyIcon.svg";
 import { ReactComponent as ErrorIcon } from "./ErrorIcon.svg";
+import { ReactComponent as EmptySearchIcon } from "./EmptySearchIcon.svg";
 import "./WasteWizard.scss";
 
 class WasteWizard extends Component {
@@ -15,7 +16,7 @@ class WasteWizard extends Component {
     favourites: [],
     search: "takeout",
     lastSearch: "",
-    loadingComplete: false,
+    loading: true,
     error: false
   };
 
@@ -38,15 +39,14 @@ class WasteWizard extends Component {
         this.setState(
           {
             items: { ...response["data"] },
-            loadingComplete: true,
+            loading: false,
             error: false
           },
           () => this.search(search)
         );
       })
       .catch(error => {
-        console.log("deu erro");
-        this.setState({ loadingComplete: false, error: true });
+        this.setState({ loading: false, error: true });
       });
   }
 
@@ -100,17 +100,14 @@ class WasteWizard extends Component {
 
     // Get the list of items (so you never mutate state) to create a separate and updated item set
     const updatedItemSet = { ...items };
-    // And now the item itself
     const updatedItem = updatedItemSet[item];
 
     // Change the Favourite property and update the list
     updatedItem.favourited = !updatedItem.favourited;
 
     if (updatedItem.favourited) {
-      // If the item has been favourited
       favourites.push(item);
     } else {
-      // If the item has been unfavourited
       favourites = favourites.filter(value => value !== item);
     }
 
@@ -126,26 +123,15 @@ class WasteWizard extends Component {
     this.setState({ search: event.target.value });
   };
 
-  render() {
-    const {
-      items,
-      results,
-      favourites,
-      search,
-      lastSearch,
-      loadingComplete,
-      error
-    } = this.state;
+  getCurrentStateLayout(error, loading, lastSearch) {
+    // Loading State
+    if (loading) {
+      return <StateInfo title="Loading Database..." icon={<LoadingIcon />} />;
+    }
 
-    // Loading State by default
-    let resultContent = (
-      <StateInfo title="Loading Database..." icon={<LoadingIcon />} />
-    );
-    let favouriteContent = null;
-
+    // Error State
     if (error) {
-      // Error State
-      resultContent = (
+      return (
         <StateInfo title="Sorry, there was an error" icon={<ErrorIcon />}>
           There was an error connecting to the database.
           <br />
@@ -154,65 +140,85 @@ class WasteWizard extends Component {
       );
     }
 
-    if (loadingComplete) {
-      // Empty State
-      resultContent = (
-        <StateInfo
-          title={lastSearch ? "Nothing found" : "Search on Waste Wizard"}
-          icon={<EmptyIcon />}
-        >
-          {lastSearch
-            ? `Sorry, no results for "${lastSearch}". Try something else.`
-            : "Use the input above to search for something."}
+    // No Results state
+    if (lastSearch) {
+      return (
+        <StateInfo title="Sorry, nothing found" icon={<EmptyIcon />}>
+          <span>{`No results for "${lastSearch}`}.</span>
           <br />
-          e.g.: takeout, plastic, cardboard.
+          <span>Try searching for something else.</span>
+          <span>e.g.: takeout, plastic, cardboard.</span>
         </StateInfo>
       );
+    }
 
-      // Search Results
-      if (results.length > 0) {
-        // Prepare Search Results items to be displayed
-        const resultsItems = [];
-        results.forEach(element => {
-          resultsItems.push(items[element]);
-        });
+    // Empty Search state
+    return (
+      <StateInfo title={"Search on Waste Wizard"} icon={<EmptySearchIcon />}>
+        <span>Use the input above to search the Waste Wizard.</span>
+        <span>e.g.: takeout, plastic, cardboard.</span>
+      </StateInfo>
+    );
+  }
 
-        resultContent = (
-          <section className="resultSection">
-            <div role="region" aria-live="polite">
-              <span className="visually-hidden">
-                {`${results.length} results were found for ${lastSearch}`}
-              </span>
-            </div>
+  render() {
+    const {
+      items,
+      results,
+      favourites,
+      search,
+      lastSearch,
+      loading,
+      error
+    } = this.state;
+
+    let favouriteContent = null;
+    let resultContent = this.getCurrentStateLayout(error, loading, lastSearch);
+
+    // Search Results
+    if (results.length > 0) {
+      // Prepare Search Results items to be displayed
+      const resultsItems = [];
+      results.forEach(element => {
+        resultsItems.push(items[element]);
+      });
+
+      resultContent = (
+        <section className="resultSection">
+          <div role="region" aria-live="polite">
+            <span className="visually-hidden">
+              {`${results.length} results were found for ${lastSearch}`}
+            </span>
+          </div>
+
+          <WasteTable
+            caption={`Search Results for ${lastSearch}`}
+            items={resultsItems}
+            favoriteItem={this.handleFavorite}
+          />
+        </section>
+      );
+    }
+
+    if (favourites.length > 0) {
+      // Prepares Favourite List items to be displayed
+      const favItems = [];
+      favourites.forEach(element => {
+        favItems.push(items[element]);
+      });
+
+      favouriteContent = (
+        <section className="favouriteSection">
+          <div className="container">
+            <h2>Favourites</h2>
             <WasteTable
-              caption={`Search Results for ${lastSearch}`}
-              items={resultsItems}
+              caption={"Favourites List"}
+              items={favItems}
               favoriteItem={this.handleFavorite}
             />
-          </section>
-        );
-      }
-
-      if (favourites.length > 0) {
-        // Prepares Favourite List items to be displayed
-        const favItems = [];
-        favourites.forEach(element => {
-          favItems.push(items[element]);
-        });
-
-        favouriteContent = (
-          <section className="favouriteSection">
-            <div className="container">
-              <h2>Favourites</h2>
-              <WasteTable
-                caption={"Favourites List"}
-                items={favItems}
-                favoriteItem={this.handleFavorite}
-              />
-            </div>
-          </section>
-        );
-      }
+          </div>
+        </section>
+      );
     }
 
     return (
