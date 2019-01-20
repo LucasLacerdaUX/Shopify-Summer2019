@@ -24,19 +24,19 @@ self.__precacheManifest = [
     "url": "/Shopify-Summer2019/static/js/runtime~main.8a8c142e.js"
   },
   {
-    "revision": "bf2d0aaf0434bbbe49e6",
-    "url": "/Shopify-Summer2019/static/js/main.bf2d0aaf.chunk.js"
+    "revision": "48df5f03b7cab2990352",
+    "url": "/Shopify-Summer2019/static/js/main.48df5f03.chunk.js"
   },
   {
     "revision": "28e5185554493ecb8c3a",
     "url": "/Shopify-Summer2019/static/js/1.28e51855.chunk.js"
   },
   {
-    "revision": "bf2d0aaf0434bbbe49e6",
-    "url": "/Shopify-Summer2019/static/css/main.85dfcf5a.chunk.css"
+    "revision": "48df5f03b7cab2990352",
+    "url": "/Shopify-Summer2019/static/css/main.60fb3d82.chunk.css"
   },
   {
-    "revision": "3bebe2c0d03386adb63746b849bffa5d",
+    "revision": "6ac64dd9e80a037771e8c336517ecd28",
     "url": "/Shopify-Summer2019/index.html"
   }
 ];
