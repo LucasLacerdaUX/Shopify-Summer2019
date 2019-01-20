@@ -107,3 +107,5 @@ The interface has been tested with both a keyboard, mouse and the Screen Reader 
 5. [Using aria-live | bitsofcode](https://bitsofco.de/using-aria-live/)
 6. [Search Landmark | ARIA Landmarks Example - W3C](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/search.html)
 7. [H44: Using label elements to associate text labels with form controls](https://www.w3.org/TR/WCAG20-TECHS/H44.html)
+8. [Example 4 - Using ARIA landmarks to identify regions of a page](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA11)
+9. [Introduction to the Reduced Motion Media Query - CSS-Tricks](https://css-tricks.com/introduction-reduced-motion-media-query/)

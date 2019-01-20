@@ -12,28 +12,26 @@ const SearchBar = props => {
     handleSubmit
   } = props;
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="searchForm" role="search">
-        <input
-          id="searchInput"
-          className="searchInput"
-          type="text"
-          value={searchValue}
-          onChange={handleChange}
-          placeholder="Search wastes"
-          aria-label={labelInput}
-          maxLength="100"
-          autoFocus
-        />
-        <button
-          className="searchButton"
-          type="submit"
-          aria-label={labelSubmit}
-          value="Search"
-        >
-          <SearchIcon />
-        </button>
-      </div>
+    <form onSubmit={handleSubmit} className="searchForm" role="search">
+      <input
+        id="searchInput"
+        className="searchInput"
+        type="text"
+        value={searchValue}
+        onChange={handleChange}
+        placeholder="Search wastes"
+        aria-label={labelInput}
+        maxLength="100"
+        autoFocus
+      />
+      <button
+        className="searchButton"
+        type="submit"
+        aria-label={labelSubmit}
+        value="Search"
+      >
+        <SearchIcon />
+      </button>
     </form>
   );
 };

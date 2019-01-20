@@ -36,7 +36,3 @@ import WasteItem from "../components/WasteItem";
 ![WasteItem component on Desktops](http://lacerda.design/Shopify2019/WasteItem.png "WasteItem component on Desktops")
 
 _*WasteItem component on Desktops*_
-
-![WasteItem component on Mobile Devices](http://lacerda.design/Shopify2019/HeaderMobile.png "WasteItem component on Mobile Devices")
-
-_*WasteItem component on Mobile Devices*_

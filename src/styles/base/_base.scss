@@ -42,6 +42,14 @@ body {
   width: 1px;
 }
 
+// Accessibility: Disable motion for users with such preference
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 @mixin border-radius($radius) {
   border-radius: $radius;
   -webkit-border-radius: $radius;
