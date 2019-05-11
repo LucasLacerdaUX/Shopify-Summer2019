@@ -14,7 +14,6 @@ class WasteWizard extends Component {
     items: {},
     results: [],
     favourites: [],
-    search: "takeout",
     lastSearch: "",
     loading: true,
     error: false
@@ -40,7 +39,7 @@ class WasteWizard extends Component {
             loading: false,
             error: false
           },
-          () => this.search()
+          () => this.search("takeout")
         );
       })
       .catch(error => {
@@ -50,16 +49,15 @@ class WasteWizard extends Component {
 
   // Function to decode HTML entities (just a simple replace)
   decode(value) {
-    var doc = new DOMParser().parseFromString(value, "text/html");
+    const doc = new DOMParser().parseFromString(value, "text/html");
     return doc.documentElement.textContent;
   }
 
   // Search in database by keyword
-  search() {
-    const { search } = this.state;
+  search(value) {
     const results = [];
-    if (search.length > 0) {
-      const t_value = search.toLowerCase().replace(/\s/g, "");
+    if (value.length > 0) {
+      const t_value = value.toLowerCase().replace(/\s/g, "");
       const { items } = this.state;
       Object.keys(items).forEach(element => {
         const waste = items[element];
@@ -73,7 +71,7 @@ class WasteWizard extends Component {
         }
       });
     }
-    this.setState({ results: results, lastSearch: search });
+    this.setState({ results: results, lastSearch: value });
   }
 
   // Action to favourite or unfavourite item
@@ -95,15 +93,6 @@ class WasteWizard extends Component {
     }
 
     this.setState({ items: updatedItemSet, favourites });
-  };
-
-  handleSubmit = event => {
-    event.preventDefault();
-    this.search();
-  };
-
-  handleChange = event => {
-    this.setState({ search: event.target.value });
   };
 
   getCurrentStateLayout(error, loading, lastSearch) {
@@ -208,9 +197,8 @@ class WasteWizard extends Component {
       <main role="main">
         <div className="container">
           <SearchBar
-            searchValue={search}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
+            initialValue="takeout"
+            handleSubmit={text => this.search(text)}
           />
           {resultContent}
         </div>

@@ -1,24 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./SearchBar.scss";
 import { ReactComponent as SearchIcon } from "./Search.svg";
 
 const SearchBar = props => {
-  const {
-    searchValue,
-    labelInput,
-    labelSubmit,
-    handleChange,
-    handleSubmit
-  } = props;
+  const { labelInput, labelSubmit, initialValue, handleSubmit } = props;
+  const [searchValue, setSearchValue] = useState(initialValue);
+
   return (
-    <form onSubmit={handleSubmit} className="searchForm" role="search">
+    <form
+      onSubmit={event => {
+        event.preventDefault();
+        handleSubmit(searchValue);
+      }}
+      className="searchForm"
+      role="search"
+    >
       <input
         id="searchInput"
         className="searchInput"
         type="text"
         value={searchValue}
-        onChange={handleChange}
+        onChange={event => setSearchValue(event.target.value)}
         placeholder="Search wastes"
         aria-label={labelInput}
         maxLength="100"
@@ -37,15 +40,14 @@ const SearchBar = props => {
 };
 
 SearchBar.propTypes = {
-  searchValue: PropTypes.string,
+  initialValue: PropTypes.string,
   labelInput: PropTypes.string,
   labelSubmit: PropTypes.string,
-  handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired
 };
 
 SearchBar.defaultProps = {
-  searchValue: "",
+  initialValue: "takeout",
   labelInput: "Search Wastes",
   labelSubmit: "Search"
 };
