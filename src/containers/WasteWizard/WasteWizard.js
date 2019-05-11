@@ -138,7 +138,6 @@ class WasteWizard extends Component {
       items,
       results,
       favourites,
-      search,
       lastSearch,
       loading,
       error

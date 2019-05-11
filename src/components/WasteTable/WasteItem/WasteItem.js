@@ -11,6 +11,7 @@ const WasteItem = props => {
         <button
           className={favourited ? "favButton favourited" : "favButton"}
           onClick={() => favoriteItem(id)}
+          aria-pressed={favourited}
           aria-label={
             favourited ? "Remove from Favourites" : "Add to Favourites"
           }
