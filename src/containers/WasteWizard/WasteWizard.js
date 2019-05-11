@@ -21,8 +21,6 @@ class WasteWizard extends Component {
   };
 
   componentDidMount() {
-    const { search } = this.state;
-
     // Perform request
     axios
       .get(
@@ -42,7 +40,7 @@ class WasteWizard extends Component {
             loading: false,
             error: false
           },
-          () => this.search(search)
+          () => this.search()
         );
       })
       .catch(error => {
@@ -52,33 +50,16 @@ class WasteWizard extends Component {
 
   // Function to decode HTML entities (just a simple replace)
   decode(value) {
-    var entities = {
-      amp: "&",
-      apos: "'",
-      lt: "<",
-      gt: ">",
-      quot: '"',
-      nbsp: "\xa0"
-    };
-
-    var entityPattern = /&([a-z]+);/gi;
-
-    return value.replace(entityPattern, (match, entity) => {
-      entity = entity.toLowerCase();
-      // Check if entity is in list
-      if (entities.hasOwnProperty(entity)) {
-        return entities[entity];
-      }
-
-      return match;
-    });
+    var doc = new DOMParser().parseFromString(value, "text/html");
+    return doc.documentElement.textContent;
   }
 
   // Search in database by keyword
-  search(value) {
+  search() {
+    const { search } = this.state;
     const results = [];
-    if (value.length > 0) {
-      const t_value = value.toLowerCase().replace(/\s/g, "");
+    if (search.length > 0) {
+      const t_value = search.toLowerCase().replace(/\s/g, "");
       const { items } = this.state;
       Object.keys(items).forEach(element => {
         const waste = items[element];
@@ -92,7 +73,7 @@ class WasteWizard extends Component {
         }
       });
     }
-    this.setState({ results: results, lastSearch: value });
+    this.setState({ results: results, lastSearch: search });
   }
 
   // Action to favourite or unfavourite item
@@ -118,7 +99,7 @@ class WasteWizard extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.search(this.state.search);
+    this.search();
   };
 
   handleChange = event => {
