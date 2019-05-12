@@ -40,9 +40,13 @@ const SearchBar = props => {
 };
 
 SearchBar.propTypes = {
+  /** The content of the input */
   initialValue: PropTypes.string,
+  /** A descriptive label for the main input label (for accessibility purposes). Visually hidden. */
   labelInput: PropTypes.string,
+  /** A descriptive label for the Submit button (for accessibility purposes). Visually hidden. */
   labelSubmit: PropTypes.string,
+  /** Function executed on form submitted (both via enter or via button) */
   handleSubmit: PropTypes.func.isRequired
 };
 

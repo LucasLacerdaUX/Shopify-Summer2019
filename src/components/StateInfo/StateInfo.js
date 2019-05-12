@@ -7,15 +7,18 @@ const StateInfo = props => {
   return (
     <div className="StateInfo" role="region" aria-live="polite">
       {icon}
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       {children}
     </div>
   );
 };
 
 StateInfo.propTypes = {
+  /** Add an icon component or any other component to visually describe the state. Shown before the title. */
   icon: PropTypes.node,
+  /** Title of the state component. */
   title: PropTypes.string,
+  /** Add text explaining the current state or any other component/HTML code. Shown after the title. */
   children: PropTypes.node
 };
 

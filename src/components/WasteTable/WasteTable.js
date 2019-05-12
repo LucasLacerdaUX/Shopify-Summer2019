@@ -6,20 +6,18 @@ import "./WasteTable.scss";
 const WasteTable = props => {
   const { items, caption, favoriteItem } = props;
   const results = [];
-  if (items) {
-    items.forEach(item => {
-      results.push(
-        <WasteItem
-          key={item.id}
-          id={item.id}
-          title={item.title}
-          body={item.body}
-          favourited={item.favourited}
-          favoriteItem={favoriteItem}
-        />
-      );
-    });
-  }
+  items.forEach(item => {
+    results.push(
+      <WasteItem
+        key={item.id}
+        id={item.id}
+        title={item.title}
+        body={item.body}
+        favourited={item.favourited}
+        favoriteItem={favoriteItem}
+      />
+    );
+  });
   return (
     <table>
       <caption>{caption}</caption>
@@ -36,8 +34,11 @@ const WasteTable = props => {
 };
 
 WasteTable.propTypes = {
+  /** The list of waste items inside the table. */
   items: PropTypes.array.isRequired,
+  /** A descriptive label for the table (for accessibility purposes). Visually hidden. */
   caption: PropTypes.string,
+  /** Function to handle the favourite action of any WasteItem inside this table. */
   favoriteItem: PropTypes.func
 };
 

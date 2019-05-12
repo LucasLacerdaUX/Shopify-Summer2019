@@ -12,6 +12,7 @@ const Header = props => {
 };
 
 Header.propTypes = {
+  /** The title displayed as an h1 tag inside the header component. */
   title: PropTypes.string
 };
 
